@@ -35,16 +35,12 @@ public class GPUInfoWithJNA {
     }
 
     public static String getGPUInfo() {
-        // Пример вызова функции GetSystemMetrics с использованием JNA
-        int nIndex = 80; // Индекс для SM_REMOTESESSION (0x1000)
+        int nIndex = 80;
         int remoteSession = User32.INSTANCE.GetSystemMetrics(nIndex);
 
         if (remoteSession != 0) {
             return "Cannot retrieve GPU information in remote session.";
         }
-
-        // Вы можете добавить здесь вызовы для других функций для получения дополнительной информации о видеокарте
-
         return "GPU information not available.";
     }
 }
